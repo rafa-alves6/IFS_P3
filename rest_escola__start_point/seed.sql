@@ -97,16 +97,16 @@ INSERT INTO disciplina (id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in
 -- professor  (depende: titulo)
 -- --------------------------------------------------------
 INSERT INTO professor (id_titulo, tx_nome, tx_sexo, tx_estado_civil, dt_nascimento, tx_telefone) VALUES
-    (4, 'Ana Paula Ferreira',    'f', 'c', '1975-03-12', '(11)99001-0001'),
-    (3, 'Carlos Eduardo Lima',   'm', 's', '1980-07-22', '(21)98002-0002'),
-    (4, 'Fernanda Souza',        'f', 'd', '1970-11-05', '(31)97003-0003'),
-    (2, 'Roberto Alves',         'm', 'c', '1985-01-30', '(61)96004-0004'),
-    (4, 'Juliana Costa',         'f', 's', '1978-09-14', '(71)95005-0005'),
-    (3, 'Marcos Oliveira',       'm', 'c', '1982-04-18', '(81)94006-0006'),
-    (5, 'Patrícia Nascimento',   'f', 'c', '1968-12-25', '(51)93007-0007'),
-    (4, 'Thiago Mendes',         'm', 's', '1990-06-08', '(79)92008-0008'),
-    (1, 'Camila Rodrigues',      'f', 'd', '1995-02-19', '(11)91009-0009'),
-    (3, 'Leonardo Santos',       'm', 'c', '1977-08-03', '(11)90010-0010');
+    (4, 'Ana Paula Ferreira',    'f', 'c', '1975-03-12', '1199001000101'),
+    (3, 'Carlos Eduardo Lima',   'm', 's', '1980-07-22', '2198002000202'),
+    (4, 'Fernanda Souza',        'f', 'd', '1970-11-05', '3197003000303'),
+    (2, 'Roberto Alves',         'm', 'c', '1985-01-30', '6196004000404'),
+    (4, 'Juliana Costa',         'f', 's', '1978-09-14', '7195005000505'),
+    (3, 'Marcos Oliveira',       'm', 'c', '1982-04-18', '8194006000606'),
+    (5, 'Patrícia Nascimento',   'f', 'c', '1968-12-25', '5193007000707'),
+    (4, 'Thiago Mendes',         'm', 's', '1990-06-08', '7992008000808'),
+    (1, 'Camila Rodrigues',      'f', 'd', '1995-02-19', '1191009000909'),
+    (3, 'Leonardo Santos',       'm', 'c', '1977-08-03', '1190010001010');
 
 -- --------------------------------------------------------
 -- aluno
