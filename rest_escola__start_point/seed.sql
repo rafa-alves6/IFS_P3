@@ -3,6 +3,13 @@
 -- Ordem respeitando dependências de FK
 -- ============================================================
 
+-- Limpa todas as tabelas respeitando as FKs
+TRUNCATE TABLE
+    cursa, leciona, aluno, professor,
+    disciplina, curso, instituicao,
+    titulo, tipo_disciplina, tipo_curso
+CASCADE;
+
 -- --------------------------------------------------------
 -- tipo_curso
 -- --------------------------------------------------------
