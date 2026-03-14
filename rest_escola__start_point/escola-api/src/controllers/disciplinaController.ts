@@ -1,0 +1,63 @@
+import type { Request, Response } from 'express';
+import { pool } from '../db';
+
+export const getDisciplinas = async (req: Request, res: Response) => {
+    try {
+        const result = await pool.query('SELECT * FROM disciplina ORDER BY id_disciplina ASC');
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro' });
+    }
+};
+
+export const getDisciplinaById = async (req: Request, res: Response) => {
+    try {
+        const result = await pool.query('SELECT * FROM disciplina WHERE id_disciplina = $1', [req.params.id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: 'Não encontrado' });
+        res.status(200).json(result.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro' });
+    }
+};
+
+export const createDisciplina = async (req: Request, res: Response) => {
+    const { id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in_periodo, in_carga_horaria } = req.body;
+    try {
+        const result = await pool.query(
+            'INSERT INTO disciplina (id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in_periodo, in_carga_horaria) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+            [id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in_periodo, in_carga_horaria]
+        );
+        res.status(201).json(result.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro' });
+    }
+};
+
+export const updateDisciplina = async (req: Request, res: Response) => {
+    const { id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in_periodo, in_carga_horaria } = req.body;
+    try {
+        const result = await pool.query(
+            'UPDATE disciplina SET id_curso = $1, id_tipo_disciplina = $2, tx_sigla = $3, tx_descricao = $4, in_periodo = $5, in_carga_horaria = $6 WHERE id_disciplina = $7 RETURNING *',
+            [id_curso, id_tipo_disciplina, tx_sigla, tx_descricao, in_periodo, in_carga_horaria, req.params.id]
+        );
+        if (result.rows.length === 0) return res.status(404).json({ message: 'Não encontrado' });
+        res.status(200).json(result.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro' });
+    }
+};
+
+export const deleteDisciplina = async (req: Request, res: Response) => {
+    try {
+        const result = await pool.query('DELETE FROM disciplina WHERE id_disciplina = $1 RETURNING *', [req.params.id]);
+        if (result.rows.length === 0) return res.status(404).json({ message: 'Não encontrado' });
+        res.status(200).json({ message: 'Deletado com sucesso' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro' });
+    }
+};
