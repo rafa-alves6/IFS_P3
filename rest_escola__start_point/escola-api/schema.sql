@@ -146,3 +146,4 @@ CREATE TABLE cursa (
         FOREIGN KEY (id_disciplina) REFERENCES disciplina (id_disciplina)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
+

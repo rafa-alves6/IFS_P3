@@ -159,3 +159,4 @@ INSERT INTO cursa (id_aluno, id_disciplina, in_ano, in_semestre, in_faltas, nm_n
     (8,  8, 2024, 1,  5, 6.5,  7.0,  6.0,  true),
     (9,  9, 2024, 1,  0, 9.5,  9.0,  10.0, true),
     (10, 10, 2024, 1, 2, 8.5,  NULL, NULL, false);
+
